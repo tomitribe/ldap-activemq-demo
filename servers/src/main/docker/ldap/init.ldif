@@ -13,18 +13,30 @@ objectclass: organizationalUnit
 objectclass: top
 ou: activemq
 
-dn: cn=my user,ou=users,dc=example,dc=com
+dn: cn=jbloggs,ou=users,dc=example,dc=com
 objectclass: inetOrgPerson
 objectclass: organizationalPerson
 objectclass: person
 objectclass: top
-cn: my user
-sn: user
-mail: my@user
+cn: jbloggs
+sn: Bloggs
+mail: jbloggs@superbiz.org
 userpassword: user
 
 dn: cn=admin,ou=activemq,ou=groups,dc=example,dc=com
 objectclass: groupOfNames
 objectclass: top
 cn: admin
-member: cn=my user,ou=users,dc=example,dc=com
+member: cn=jbloggs,ou=users,dc=example,dc=com
+
+dn: cn=write,ou=activemq,ou=groups,dc=example,dc=com
+objectclass: groupOfNames
+objectclass: top
+cn: write
+member: cn=jbloggs,ou=users,dc=example,dc=com
+
+dn: cn=read,ou=activemq,ou=groups,dc=example,dc=com
+objectclass: groupOfNames
+objectclass: top
+cn: read
+member: cn=jbloggs,ou=users,dc=example,dc=com
