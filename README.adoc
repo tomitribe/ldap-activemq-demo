@@ -1,0 +1,14 @@
+= AMQ Ldap Demo
+
+== Prerequisites
+
+* Docker 18.03.0-ce
+* Apache Maven 3.5.2
+* Java 1.8.0_162
+
+== Running
+
+```
+mvn clean install
+mvn --projects run docker:run@solution
+```
