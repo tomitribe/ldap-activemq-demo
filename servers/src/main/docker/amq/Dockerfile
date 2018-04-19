@@ -11,6 +11,8 @@ RUN tar xzf activemq.tar.gz && rm activemq.tar.gz
 RUN mv apache-* activemq
 
 WORKDIR /opt/activemq/conf
+COPY activemq.xml .
+COPY login.config .
 
 WORKDIR /opt/activemq
 

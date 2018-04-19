@@ -1,0 +1,30 @@
+dn: ou=users,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: users
+
+dn: ou=groups,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: groups
+
+dn: ou=activemq,ou=groups,dc=example,dc=com
+objectclass: organizationalUnit
+objectclass: top
+ou: activemq
+
+dn: cn=my user,ou=users,dc=example,dc=com
+objectclass: inetOrgPerson
+objectclass: organizationalPerson
+objectclass: person
+objectclass: top
+cn: my user
+sn: user
+mail: my@user
+userpassword: user
+
+dn: cn=admin,ou=activemq,ou=groups,dc=example,dc=com
+objectclass: groupOfNames
+objectclass: top
+cn: admin
+member: cn=my user,ou=users,dc=example,dc=com

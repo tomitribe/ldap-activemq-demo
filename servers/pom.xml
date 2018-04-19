@@ -99,6 +99,14 @@
                                         </dockerFileDir>
                                     </build>
                                 </image>
+                                <image>
+                                    <name>${images.owner}/ldap-amq-demo-ldap:${project.version}</name>
+                                    <build>
+                                        <filter>false</filter>
+                                        <dockerFileDir>${project.build.directory}/docker-build/ldap/
+                                        </dockerFileDir>
+                                    </build>
+                                </image>
                             </images>
                         </configuration>
                     </execution>

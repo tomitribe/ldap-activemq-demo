@@ -53,8 +53,7 @@
                                         <hostname>producer</hostname>
                                         <env>
                                             <WAIT_FOR>amq:8161</WAIT_FOR>
-                                            <CATALINA_OPTS>-Xms128m -Xmx512m -DMyJmsResourceAdapter.ServerUrl='tcp://amq:61616'
-                                            </CATALINA_OPTS>
+                                            <CATALINA_OPTS>-Xms128m -Xmx512m -DMyJmsResourceAdapter.ServerUrl='tcp://amq:61616'</CATALINA_OPTS>
                                         </env>
                                         <network>
                                             <mode>custom</mode>
@@ -70,8 +69,7 @@
                                         <hostname>consumer</hostname>
                                         <env>
                                             <WAIT_FOR>amq:8161</WAIT_FOR>
-                                            <CATALINA_OPTS>-Xms128m -Xmx512m -DMyJmsResourceAdapter.ServerUrl='tcp://amq:61616'
-                                            </CATALINA_OPTS>
+                                            <CATALINA_OPTS>-Xms128m -Xmx512m -DMyJmsResourceAdapter.ServerUrl='tcp://amq:61616'</CATALINA_OPTS>
                                         </env>
                                         <network>
                                             <mode>custom</mode>
@@ -85,10 +83,25 @@
                                     <alias>amq</alias>
                                     <run>
                                         <hostname>amq</hostname>
+                                        <env>
+                                            <WAIT_FOR>ldap:10389</WAIT_FOR>
+                                        </env>
                                         <network>
                                             <mode>custom</mode>
                                             <name>demo-network</name>
                                             <alias>amq</alias>
+                                        </network>
+                                    </run>
+                                </image>
+                                <image>
+                                    <name>${images.owner}/ldap-amq-demo-ldap:${project.version}</name>
+                                    <alias>ldap</alias>
+                                    <run>
+                                        <hostname>ldap</hostname>
+                                        <network>
+                                            <mode>custom</mode>
+                                            <name>demo-network</name>
+                                            <alias>ldap</alias>
                                         </network>
                                     </run>
                                 </image>
