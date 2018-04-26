@@ -11,3 +11,12 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
 COPY 10-ptrace.conf /etc/sysctl.d/10-ptrace.conf
+
+RUN addgroup --system jdoe
+RUN adduser --system --ingroup jdoe jdoe
+
+WORKDIR /opt
+RUN chown -R jdoe:jdoe /opt
+
+USER jdoe
+

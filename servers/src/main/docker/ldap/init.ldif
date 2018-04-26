@@ -21,7 +21,7 @@ objectclass: top
 cn: jbloggs
 sn: Bloggs
 mail: jbloggs@superbiz.org
-userpassword: user
+userpassword: mypassword
 
 dn: cn=admin,ou=activemq,ou=groups,dc=example,dc=com
 objectclass: groupOfNames
