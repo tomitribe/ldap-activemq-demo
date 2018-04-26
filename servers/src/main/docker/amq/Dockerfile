@@ -1,5 +1,7 @@
 FROM ${images.owner}/ldap-amq-demo-base:${project.version}
 
+USER jdoe
+
 RUN curl -s -o activemq.tar.gz http://apache.mirror.rafal.ca/activemq/${amq.version}/apache-activemq-${amq.version}-bin.tar.gz
 RUN curl -s -o activemq.asc https://www.apache.org/dist/activemq/${amq.version}/apache-activemq-${amq.version}-bin.tar.gz.asc
 RUN curl -s -o KEYS https://www.apache.org/dist/activemq/KEYS

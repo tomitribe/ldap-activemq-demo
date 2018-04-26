@@ -17,6 +17,3 @@ RUN adduser --system --ingroup jdoe jdoe
 
 WORKDIR /opt
 RUN chown -R jdoe:jdoe /opt
-
-USER jdoe
-
