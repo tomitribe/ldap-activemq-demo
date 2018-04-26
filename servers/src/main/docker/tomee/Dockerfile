@@ -19,6 +19,8 @@ RUN chmod u+x start.sh
 USER jdoe
 
 COPY logging.properties /opt/tomee/conf/
+COPY tomee.xml /opt/tomee/conf/
+RUN mkdir -p /opt/tomee/apps
 
 ENTRYPOINT ["/opt/tomee/start.sh"]
 CMD ["run"]
