@@ -1,7 +1,6 @@
 FROM ${images.owner}/ldap-amq-demo-base:${project.version}
 
-RUN mkdir -p /opt
-WORKDIR /opt
+USER jdoe
 
 RUN curl -s -o activemq.tar.gz http://apache.mirror.rafal.ca/activemq/${amq.version}/apache-activemq-${amq.version}-bin.tar.gz
 RUN curl -s -o activemq.asc https://www.apache.org/dist/activemq/${amq.version}/apache-activemq-${amq.version}-bin.tar.gz.asc
@@ -21,7 +20,9 @@ COPY webconsole-embedded.xml .
 WORKDIR /opt/activemq
 
 COPY start.sh .
+USER root
 RUN chmod u+x start.sh
+USER jdoe
 
 ENTRYPOINT ["/opt/activemq/start.sh"]
 CMD ["console"]
