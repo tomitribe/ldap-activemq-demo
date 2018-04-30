@@ -85,12 +85,16 @@
                                         <hostname>amq</hostname>
                                         <env>
                                             <WAIT_FOR>ldap:10389</WAIT_FOR>
+                                            <ACTIVEMQ_ENCRYPTION_PASSWORD>mypassword</ACTIVEMQ_ENCRYPTION_PASSWORD>
                                         </env>
                                         <network>
                                             <mode>custom</mode>
                                             <name>demo-network</name>
                                             <alias>amq</alias>
                                         </network>
+                                        <ports>
+                                            <port>8161:8161</port>
+                                        </ports>
                                     </run>
                                 </image>
                                 <image>
@@ -114,3 +118,4 @@
     </build>
 </project>
 
+<!-- cji4v+sW/NQIoWr0EdBtuZjial5NWqCw -->

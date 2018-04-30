@@ -13,6 +13,10 @@ RUN mv apache-* activemq
 WORKDIR /opt/activemq/conf
 COPY activemq.xml .
 COPY login.config .
+COPY credentials-enc.properties .
+
+WORKDIR /opt/activemq/webapps/admin/WEB-INF
+COPY webconsole-embedded.xml .
 
 WORKDIR /opt/activemq
 
