@@ -12,3 +12,6 @@
 mvn clean install
 mvn --projects run docker:run@solution
 ```
+
+The ActiveMQ Console is available here http://localhost:8161/admin/
+The username is `admin` the password is `admin`
