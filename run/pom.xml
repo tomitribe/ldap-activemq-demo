@@ -85,7 +85,6 @@
                                         <hostname>amq</hostname>
                                         <env>
                                             <WAIT_FOR>ldap:10389</WAIT_FOR>
-                                            <ACTIVEMQ_ENCRYPTION_PASSWORD>mypassword</ACTIVEMQ_ENCRYPTION_PASSWORD>
                                         </env>
                                         <network>
                                             <mode>custom</mode>
