@@ -14,6 +14,8 @@ COPY start.sh .
 USER root
 RUN chmod u+x start.sh
 RUN chmod u+x init.sh
+COPY credentials.properties /opt/activemq/conf/
+COPY login.config /opt/activemq/conf/
 
 ENTRYPOINT ["/opt/start.sh"]
 CMD ["run"]
