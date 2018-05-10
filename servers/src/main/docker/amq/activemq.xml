@@ -124,7 +124,9 @@
         -->
         <transportConnectors>
             <!-- DOS protection, limit concurrent connections to 1000 and frame size to 100MB -->
+
             <transportConnector name="ssl" uri="ssl://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
+            <!--<transportConnector name="ssl" uri="ssl://0.0.0.0:61616?needClientAuth=true&amp;maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>-->
 
             <!--<transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>-->
             <!--<transportConnector name="amqp" uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>-->
