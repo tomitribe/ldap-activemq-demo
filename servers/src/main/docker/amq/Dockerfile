@@ -21,6 +21,35 @@ USER root
 RUN chmod u+x start.sh
 USER jdoe
 
+WORKDIR /opt
+
+RUN keytool -noprompt -storepass changeit -keypass changeit -genkey \
+    -alias broker \
+    -keyalg RSA \
+    -keysize 2048 \
+    -validity 90 \
+    -dname "CN=mdb.superbiz.org, OU=MDB, O=SUPERBIZ, L=Montreal, S=QC, C=CA" \
+    -keystore broker.ks
+
+RUN keytool -export \
+    -alias broker \
+    -keystore broker.ks \
+    -file broker_cert \
+    -storepass changeit
+
+ENV ACTIVEMQ_SSL_OPTS="-Djavax.net.ssl.keyStore=/opt/broker.ks -Djavax.net.ssl.keyStorePassword=changeit"
+
+RUN keytool -noprompt -storepass changeit -keypass changeit -genkey \
+    -alias client \
+    -keyalg RSA \
+    -keysize 2048 \
+    -validity 90 \
+    -dname "CN=mdb.superbiz.org, OU=MDB, O=SUPERBIZ, L=Montreal, S=QC, C=CA" \
+    -keystore client.ks
+
+RUN keytool -import -alias broker -keystore client.ts -file broker_cert -storepass changeit -noprompt
+
+WORKDIR /opt/activemq
 ENTRYPOINT ["/opt/activemq/start.sh"]
 CMD ["console"]
 

@@ -53,7 +53,15 @@
                                         <hostname>producer</hostname>
                                         <env>
                                             <WAIT_FOR>amq:8161</WAIT_FOR>
-                                            <CATALINA_OPTS>-Xms128m -Xmx512m -DMyJmsResourceAdapter.ServerUrl='tcp://amq:61616' -DMyJmsResourceAdapter.UserName=jbloggs -DMyJmsResourceAdapter.Password=mypassword</CATALINA_OPTS>
+                                            <CATALINA_OPTS>
+                                                -Xms128m -Xmx512m
+                                                -DMyJmsResourceAdapter.ServerUrl='ssl://amq:61616'
+                                                -DMyJmsResourceAdapter.UserName=jbloggs
+                                                -DMyJmsResourceAdapter.Password=mypassword
+                                                -Djavax.net.ssl.keyStore=/opt/client.ks
+                                                -Djavax.net.ssl.keyStorePassword=changeit
+                                                -Djavax.net.ssl.trustStore=/opt/client.ts
+                                            </CATALINA_OPTS>
                                         </env>
                                         <network>
                                             <mode>custom</mode>
@@ -69,7 +77,16 @@
                                         <hostname>consumer</hostname>
                                         <env>
                                             <WAIT_FOR>amq:8161</WAIT_FOR>
-                                            <CATALINA_OPTS>-Xms128m -Xmx512m -DMyJmsResourceAdapter.ServerUrl='tcp://amq:61616' -DMyJmsResourceAdapter.UserName=jbloggs -DMyJmsResourceAdapter.Password=mypassword</CATALINA_OPTS>
+                                            <CATALINA_OPTS>
+                                                -Xms128m
+                                                -Xmx512m
+                                                -DMyJmsResourceAdapter.ServerUrl='ssl://amq:61616'
+                                                -DMyJmsResourceAdapter.UserName=jbloggs
+                                                -DMyJmsResourceAdapter.Password=mypassword
+                                                -Djavax.net.ssl.keyStore=/opt/client.ks
+                                                -Djavax.net.ssl.keyStorePassword=changeit
+                                                -Djavax.net.ssl.trustStore=/opt/client.ts
+                                            </CATALINA_OPTS>
                                         </env>
                                         <network>
                                             <mode>custom</mode>
