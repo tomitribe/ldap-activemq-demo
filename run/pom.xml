@@ -102,6 +102,9 @@
                                         <hostname>amq</hostname>
                                         <env>
                                             <WAIT_FOR>ldap:10389</WAIT_FOR>
+                                            <ACTIVEMQ_OPTS>
+                                                -Djavax.net.ssl.trustStore=/opt/broker.ts
+                                            </ACTIVEMQ_OPTS>
                                         </env>
                                         <network>
                                             <mode>custom</mode>

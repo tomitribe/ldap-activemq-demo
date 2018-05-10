@@ -47,7 +47,15 @@ RUN keytool -noprompt -storepass changeit -keypass changeit -genkey \
     -dname "CN=mdb.superbiz.org, OU=MDB, O=SUPERBIZ, L=Montreal, S=QC, C=CA" \
     -keystore client.ks
 
+RUN keytool -export \
+    -alias client \
+    -keystore client.ks \
+    -file client_cert \
+    -storepass changeit
+
 RUN keytool -import -alias broker -keystore client.ts -file broker_cert -storepass changeit -noprompt
+
+RUN keytool -import -alias client -keystore broker.ts -file client_cert -storepass changeit -noprompt
 
 WORKDIR /opt/activemq
 ENTRYPOINT ["/opt/activemq/start.sh"]
